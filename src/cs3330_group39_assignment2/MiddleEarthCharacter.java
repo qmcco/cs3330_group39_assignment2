@@ -24,8 +24,8 @@ class Elf extends MiddleEarthCharacter {
 		super(name, health, power);
 	}
 	@Override boolean attack(MiddleEarthCharacter target) {
-		if ((target.getRace() != "Elf") & (target.getRace() != "Dwarf")) {
-			if (target.getRace() == "Orc") {
+		if ((!target.getRace().equals("Elf")) & (!target.getRace().equals("Dwarf"))) {
+			if (target.getRace().equals("Orc")) {
 				target.health -= (this.power * 1.5);
 				return true;
 			}
@@ -48,8 +48,8 @@ class Dwarf extends MiddleEarthCharacter {
 		super(name, health, power);
 	}
 	@Override boolean attack(MiddleEarthCharacter target) {
-		if ((target.getRace() != "Wizard") & (target.getRace() != "Dwarf")) {
-			if (target.getRace() == "Elf") {
+		if (!target.getRace().equals("Wizard") & !target.getRace().equals("Dwarf")) {
+			if (target.getRace().equals("Elf")) {
 				target.health -= (this.power * 1.5);
 				return true;
 			}
@@ -72,8 +72,8 @@ class Human extends MiddleEarthCharacter {
 		super(name, health, power);
 	}
 	@Override boolean attack(MiddleEarthCharacter target) {
-		if ((target.getRace() != "Orc") & (target.getRace() != "Human")) {
-			if (target.getRace() == "Wizard") {
+		if (!target.getRace().equals("Orc") & !target.getRace().equals("Human")) {
+			if (target.getRace().equals("Wizard")) {
 				target.health -= (this.power * 1.5);
 				return true;
 			}
@@ -96,8 +96,8 @@ class Orc extends MiddleEarthCharacter {
 		super(name, health, power);
 	}
 	@Override boolean attack(MiddleEarthCharacter target) {
-		if ((target.getRace() != "Orc") & (target.getRace() != "Elf")) {
-			if (target.getRace() == "Human") {
+		if (!target.getRace().equals("Orc") & !target.getRace().equals("Elf")) {
+			if (target.getRace().equals("Human")) {
 				target.health -= (this.power * 1.5);
 				return true;
 			}
@@ -120,8 +120,8 @@ class Wizard extends MiddleEarthCharacter {
 		super(name, health, power);
 	}
 	@Override boolean attack(MiddleEarthCharacter target) {
-		if ((target.getRace() != "Wizard") & (target.getRace() != "Human")) {
-			if (target.getRace() == "Dwarf") {
+		if (!target.getRace().equals("Wizard") & !target.getRace().equals("Human")) {
+			if (target.getRace().equals("Dwarf")) {
 				target.health -= (this.power * 1.5);
 				return true;
 			}
@@ -142,19 +142,5 @@ class Wizard extends MiddleEarthCharacter {
 
 
 
-/*
-class Main {
-	public static void main(String[] args) {
-		Elf myElf = new Elf("Jeff", 10.1, 50.3);
-		Orc myOrc = new Orc("Bob", 11.2, 42.1);
-		String testString = myElf.getRace();
-		System.out.println(testString);
-		System.out.println(myOrc.health);
-		boolean testBool = myElf.attack(myOrc);
-		System.out.println(testBool);
-		System.out.println(myOrc.health);
-		myElf.displayInfo();
-	}
-}
-*/
+
 
